@@ -24,7 +24,6 @@ To develop strong statistical thinking and apply core statistical tools in real-
 ## 🧰 Tools Used
 
 * PostgreSQL (SQL-based statistical computation)
-* Sakila database (DVD rentals)
 
 ---
 
