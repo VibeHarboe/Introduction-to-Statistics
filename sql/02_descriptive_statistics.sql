@@ -1,6 +1,5 @@
 -- ========================================================
--- 02_descriptive_statistics.sql
--- Exploring measures of central tendency using SQL
+-- Exploring measures of central tendency and variability in SQL
 -- ========================================================
 
 -- 📌 Mean (average) rental duration from the film table
@@ -51,3 +50,40 @@ FROM payment
 GROUP BY customer_id
 ORDER BY total_paid DESC
 LIMIT 10;
+
+
+-- 📌 Standard deviation of rental rates
+SELECT 
+  ROUND(STDDEV_POP(rental_rate), 2) AS std_rental_rate
+FROM film;
+
+
+-- 📌 Grouped descriptives for film lengths by rating
+SELECT 
+  rating,
+  COUNT(*) AS num_films,
+  ROUND(MIN(length), 1) AS min_length,
+  ROUND(MAX(length), 1) AS max_length,
+  ROUND(AVG(length), 1) AS avg_length
+FROM film
+GROUP BY rating
+ORDER BY avg_length DESC;
+
+
+-- 📌 Share of total revenue per customer
+SELECT 
+  customer_id,
+  ROUND(SUM(amount), 2) AS total_paid,
+  ROUND(100.0 * SUM(amount) / (SELECT SUM(amount) FROM payment), 2) AS pct_of_total
+FROM payment
+GROUP BY customer_id
+ORDER BY pct_of_total DESC
+LIMIT 10;
+
+
+-- 📌 Percentile distribution of rental durations (25th, 50th, 75th)
+SELECT
+  PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY rental_duration) AS p25,
+  PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY rental_duration) AS p50,
+  PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY rental_duration) AS p75
+FROM film;
