@@ -74,3 +74,4 @@ FROM sample;
 -- - Aggregate functions (AVG, COUNT, STDDEV) estimate parameters
 -- - Simple confidence intervals use normal approximation with large n
 -- - Ideal for dashboard monitoring, report sampling, and inference
+
