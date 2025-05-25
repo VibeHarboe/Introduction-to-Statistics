@@ -1,30 +1,30 @@
-# 📊 Introduction to Statistics
+# 📊 Introduction to Statistics (SQL version)
 
-This repository documents hands-on exercises, concepts, and applications from DataCamp's **"Introduction to Statistics"** course. It serves as a practical portfolio for foundational statistics, using Python to explore variability, sampling, distributions, and hypothesis testing.
+This repository documents hands-on exercises, concepts, and applications from DataCamp's **"Introduction to Statistics"** course. It serves as a practical portfolio for foundational statistics, using **SQL (PostgreSQL)** to explore variability, sampling, distributions, and hypothesis testing.
 
 ---
 
 ## 🎯 Project Goal
 
-To develop strong statistical thinking and apply core statistical tools in real-world scenarios, laying the foundation for data-driven decision-making.
+To develop strong statistical thinking and apply core statistical tools in real-world scenarios — using only SQL — to support data-driven decision-making.
 
 ---
 
 ## 🧠 Skills Covered
 
 * Understanding sampling and confidence intervals
-* Measuring central tendency (mean, median, mode)
-* Analyzing spread (range, IQR, standard deviation)
-* Working with distributions (normal, empirical)
-* Hypothesis testing, p-values, significance levels
-* Avoiding common pitfalls (e.g., correlation vs causation)
+* Measuring central tendency (mean, median, mode) using SQL aggregates
+* Analyzing spread (range, IQR, standard deviation) using SQL functions
+* Working with distributions using groupings and histograms
+* Performing hypothesis testing using logic, filters, and proportions
+* Avoiding pitfalls like correlation vs causation with structured joins
 
 ---
 
 ## 🧰 Tools Used
 
-* Python (via DataCamp)
-* Libraries: `numpy`, `pandas`, `scipy`, `matplotlib`
+* PostgreSQL (SQL-based statistical computation)
+* Sakila database (DVD rentals)
 
 ---
 
@@ -33,13 +33,13 @@ To develop strong statistical thinking and apply core statistical tools in real-
 ```
 introduction-to-statistics/
 ├── README.md
-├── data/                      # CSV or synthetic datasets
-├── notebooks/                 # Interactive analysis in Python
-│   ├── 01_sampling_and_estimation.ipynb
-│   ├── 02_descriptive_statistics.ipynb
-│   ├── 03_variability.ipynb
-│   ├── 04_distributions_and_probability.ipynb
-│   └── 05_hypothesis_testing.ipynb
+├── data/                      # Sakila or synthetic datasets (.csv)
+├── sql/                       # SQL examples instead of Jupyter notebooks
+│   ├── 01_sampling_and_estimation.sql
+│   ├── 02_descriptive_statistics.sql
+│   ├── 03_variability.sql
+│   ├── 04_distributions_and_probability.sql
+│   └── 05_hypothesis_testing.sql
 ├── docs/                     # Conceptual writeups and exam notes
 │   ├── statistical-thinking.md
 │   ├── sampling-strategies.md
@@ -57,10 +57,10 @@ introduction-to-statistics/
 
 ## 🚀 How to Use This Project
 
-* Explore Jupyter notebooks in `/notebooks/` to see how statistical tools are applied in code.
-* Read detailed summaries and use cases in `/docs/` to reinforce theory and prepare for exams.
-* Use `/visuals/` for graphics when presenting or sharing insights.
-* Test your knowledge with embedded examples and practice questions in selected notebooks.
+* Explore `.sql` files in `/sql/` to see how statistics are applied using PostgreSQL.
+* Read detailed summaries and use cases in `/docs/` to reinforce theory and prep for exams.
+* Use `/visuals/` for ready-to-use charts in presentations.
+* Test your knowledge using patterns shown in reusable SQL blocks.
 
 ---
 
@@ -74,7 +74,7 @@ introduction-to-statistics/
 
 ## 🌍 Why This Matters
 
-Understanding statistics is foundational to any data career. This project bridges theory and application — making statistical concepts both intuitive and actionable for real-world business and analytics problems.
+Understanding statistics is foundational to any data career. This project bridges theory and SQL application — making statistical concepts both intuitive and operational for real-world analytics and decision-making.
 
 ---
 
