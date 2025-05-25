@@ -38,7 +38,7 @@ introduction-to-statistics/
 │   ├── 02_descriptive_statistics.sql
 │   ├── 03_variability.sql
 │   ├── 04_distributions_and_probability.sql
-│   └── 05_hypothesis_testing.sql
+│   └── 05_hypothesis_testing_and_experiments.sql
 ├── docs/                     # Conceptual writeups and exam notes
 │   ├── statistical-thinking.md
 │   ├── sampling-strategies.md
