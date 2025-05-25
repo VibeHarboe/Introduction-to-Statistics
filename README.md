@@ -67,6 +67,7 @@ introduction-to-statistics/
 ## 📎 Certificate
 
 ✅ Successfully completed the [Introduction to Statistics](https://app.datacamp.com/learn/courses/introduction-to-statistics) course on DataCamp.
+
 📄 See certificate: [`certificate.pdf`](https://www.datacamp.com/statement-of-accomplishment/course/586ff048ffd8a83683182dcb482b8c75bf27b2a9?raw=1)
 
 ---
