@@ -47,7 +47,7 @@ introduction-to-statistics/
 │   ├── hypothesis-testing-explained.md
 │   ├── errors-and-significance.md
 │   ├── correlation-vs-causation.md
-│   └── business-application-of-stats.md
+│   └── Why-Statistics-Matters.md
 ├── visuals/                  # Charts, diagrams, presentation-ready figures
 └── certificate.pdf
 ```
