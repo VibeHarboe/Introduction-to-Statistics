@@ -3,7 +3,7 @@
 -- Statistical inference, hypothesis testing, confidence intervals, A/B tests
 -- ========================================================
 
--- 🧪 Mean comparison between two customer groups
+-- Mean comparison between two customer groups
 SELECT 
   customer_group,
   ROUND(AVG(amount), 2) AS avg_payment,
@@ -12,7 +12,7 @@ FROM customer_payments
 GROUP BY customer_group;
 
 
--- 🧪 Confidence interval for mean payment (95%)
+-- Confidence interval for mean payment (95%)
 WITH stats AS (
   SELECT 
     AVG(amount) AS mean,
@@ -27,7 +27,7 @@ SELECT
 FROM stats;
 
 
--- 🧪 Effect size (Cohen's d approximation) between A/B groups
+-- Effect size (Cohen's d approximation) between A/B groups
 WITH stats AS (
   SELECT group_name, AVG(amount) AS mean, STDDEV(amount) AS stddev
   FROM ab_test_results
@@ -38,14 +38,14 @@ SELECT
 FROM stats;
 
 
--- 🧪 Bootstrap-style resampling (random subset, not true bootstrap)
+-- Bootstrap-style resampling (random subset, not true bootstrap)
 SELECT *
 FROM ab_test_results
 ORDER BY RANDOM()
 LIMIT 1000;
 
 
--- 🧪 Simulated binomial test output (logic only – no native function)
+-- Simulated binomial test output (logic only – no native function)
 -- Check if a conversion rate is significantly > baseline (e.g., 5%)
 SELECT
   campaign_id,
@@ -59,7 +59,7 @@ FROM campaign_results
 GROUP BY campaign_id;
 
 
--- 🧪 Z-score for individual payments (vs population mean)
+-- Z-score for individual payments (vs population mean)
 WITH stats AS (
   SELECT AVG(amount) AS mean, STDDEV(amount) AS stddev FROM payment
 )
@@ -72,11 +72,11 @@ ORDER BY z_score DESC
 LIMIT 100;
 
 
--- 🧪 Bonferroni correction for multiple comparisons (e.g., 5 tests)
+-- Bonferroni correction for multiple comparisons (e.g., 5 tests)
 SELECT 0.05 / 5 AS adjusted_alpha;
 
 
--- 🧪 Conversion rates and lift between test variants
+-- Conversion rates and lift between test variants
 WITH conv AS (
   SELECT group_name,
          COUNT(*) FILTER (WHERE converted) AS conversions,
@@ -94,7 +94,7 @@ CROSS JOIN conv c2
 WHERE c2.group_name = 'control';
 
 
--- 🧪 Confidence interval for difference in means (between test variants)
+-- Confidence interval for difference in means (between test variants)
 WITH ab_stats AS (
   SELECT group_name, COUNT(*) AS n, AVG(amount) AS mean, STDDEV(amount) AS std
   FROM ab_test_results
