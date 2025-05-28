@@ -2,19 +2,19 @@
 -- Exploring measures of central tendency and variability in SQL
 -- ========================================================
 
--- 📌 Mean (average) rental duration from the film table
+-- Mean (average) rental duration from the film table
 SELECT 
   ROUND(AVG(rental_duration), 2) AS avg_rental_duration
 FROM film;
 
 
--- 📌 Median rental duration (simulate with percentile_cont in PostgreSQL)
+-- Median rental duration (simulate with percentile_cont in PostgreSQL)
 SELECT 
   PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY rental_duration) AS median_rental_duration
 FROM film;
 
 
--- 📌 Mode: Most frequent rental duration
+-- Mode: Most frequent rental duration
 SELECT rental_duration, COUNT(*) AS count
 FROM film
 GROUP BY rental_duration
@@ -22,7 +22,7 @@ ORDER BY count DESC
 LIMIT 1;
 
 
--- 📌 Count, Min, Max of film length (descriptive range)
+-- Count, Min, Max of film length (descriptive range)
 SELECT 
   COUNT(*) AS num_films,
   MIN(length) AS shortest_film,
@@ -30,7 +30,7 @@ SELECT
 FROM film;
 
 
--- 📌 Grouped averages by rating (mean per group)
+-- Grouped averages by rating (mean per group)
 SELECT 
   rating,
   ROUND(AVG(length), 1) AS avg_length,
@@ -40,7 +40,7 @@ GROUP BY rating
 ORDER BY rating;
 
 
--- 📌 Summarize payment totals per customer
+-- Summarize payment totals per customer
 SELECT 
   customer_id,
   ROUND(SUM(amount), 2) AS total_paid,
@@ -52,13 +52,13 @@ ORDER BY total_paid DESC
 LIMIT 10;
 
 
--- 📌 Standard deviation of rental rates
+-- Standard deviation of rental rates
 SELECT 
   ROUND(STDDEV_POP(rental_rate), 2) AS std_rental_rate
 FROM film;
 
 
--- 📌 Grouped descriptives for film lengths by rating
+-- Grouped descriptives for film lengths by rating
 SELECT 
   rating,
   COUNT(*) AS num_films,
@@ -70,7 +70,7 @@ GROUP BY rating
 ORDER BY avg_length DESC;
 
 
--- 📌 Share of total revenue per customer
+-- Share of total revenue per customer
 SELECT 
   customer_id,
   ROUND(SUM(amount), 2) AS total_paid,
@@ -81,7 +81,7 @@ ORDER BY pct_of_total DESC
 LIMIT 10;
 
 
--- 📌 Percentile distribution of rental durations (25th, 50th, 75th)
+-- Percentile distribution of rental durations (25th, 50th, 75th)
 SELECT
   PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY rental_duration) AS p25,
   PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY rental_duration) AS p50,
