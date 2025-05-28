@@ -2,21 +2,21 @@
 -- Measuring spread and variability in rental and payment data
 -- ========================================================
 
--- 📊 Range of rental durations (min, max)
+-- Range of rental durations (min, max)
 SELECT 
   MIN(rental_duration) AS min_days,
   MAX(rental_duration) AS max_days
 FROM film;
 
 
--- 📊 Variance and standard deviation of film length
+-- Variance and standard deviation of film length
 SELECT 
   ROUND(VAR_POP(length), 2) AS variance_length,
   ROUND(STDDEV_POP(length), 2) AS stddev_length
 FROM film;
 
 
--- 📊 Compare rental_rate variability across ratings
+-- Compare rental_rate variability across ratings
 SELECT 
   rating,
   ROUND(AVG(rental_rate), 2) AS avg_rate,
@@ -26,14 +26,14 @@ GROUP BY rating
 ORDER BY stddev_rate DESC;
 
 
--- 📊 IQR approximation for rental durations using percentiles
+-- IQR approximation for rental durations using percentiles
 SELECT
   PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY rental_duration) -
   PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY rental_duration) AS iqr_rental_duration
 FROM film;
 
 
--- 📊 Coefficient of Variation (CV) = stddev / mean
+-- Coefficient of Variation (CV) = stddev / mean
 -- Useful for comparing dispersion across different metrics
 SELECT 
   ROUND(STDDEV_POP(length) / AVG(length), 2) AS cv_length,
@@ -41,7 +41,7 @@ SELECT
 FROM film;
 
 
--- 📊 Payment variability by staff member
+-- Payment variability by staff member
 SELECT 
   staff_id,
   COUNT(*) AS num_payments,
@@ -52,7 +52,7 @@ GROUP BY staff_id
 ORDER BY stddev_payment DESC;
 
 
--- 📊 Revenue range per customer
+-- Revenue range per customer
 SELECT 
   customer_id,
   MIN(amount) AS min_paid,
@@ -64,7 +64,7 @@ ORDER BY stddev_payment DESC
 LIMIT 10;
 
 
--- 📊 Monthly payment variation over time
+-- Monthly payment variation over time
 SELECT 
   DATE_TRUNC('month', payment_date) AS month,
   ROUND(AVG(amount), 2) AS avg_payment,
@@ -74,7 +74,7 @@ GROUP BY month
 ORDER BY month;
 
 
--- 📊 Price variability by film category
+-- Price variability by film category
 SELECT 
   c.name AS category,
   ROUND(AVG(f.rental_rate), 2) AS avg_rate,
@@ -86,7 +86,7 @@ GROUP BY category
 ORDER BY stddev_rate DESC;
 
 
--- 📊 Z-score to identify unusually long/short films
+-- Z-score to identify unusually long/short films
 SELECT 
   title,
   length,
@@ -96,7 +96,7 @@ ORDER BY z_score DESC
 LIMIT 10;
 
 
--- 📊 Variability in number of payments per customer
+-- Variability in number of payments per customer
 SELECT 
   ROUND(AVG(num_payments), 2) AS avg_num,
   ROUND(STDDEV_POP(num_payments), 2) AS stddev_num
