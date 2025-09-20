@@ -47,10 +47,10 @@ GROUP BY group_id;
 
 ## 🧵 Type I and Type II Errors
 
-| Error Type        | Definition                                  | Risk when...                 | Impact in Business                              |
-| ----------------- | ------------------------------------------- | ---------------------------- | ----------------------------------------------- |
-| Type I Error (α)  | False Positive — rejecting a true H0        | p < α even if no real effect | Acting on noise (e.g., rolling out bad feature) |
-| Type II Error (β) | False Negative — failing to reject false H0 | p > α even when H1 is true   | Missing an opportunity                          |
+| Error Type        | Definition                                  | Risk when...                 | Impact in Business |
+| ----------------- | ------------------------------------------- | ---------------------------- | ------------------------------------------------- |
+| Type I Error (α)  | False Positive — rejecting a true H0        | p < α even if no real effect | Acting on noise (e.g., rolling out a bad feature) |
+| Type II Error (β) | False Negative — failing to reject false H0 | p > α even when H1 is true   | Missing an opportunity                            |
 
 The lower your significance level, the lower the risk of Type I error — but the higher your risk of missing real effects (Type II).
 
