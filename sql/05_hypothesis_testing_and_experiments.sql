@@ -33,8 +33,8 @@ WITH stats AS (
   FROM ab_test_results
   GROUP BY group_name
 )
-SELECT 
-  (MAX(mean) - MIN(mean)) / SQRT((SUM(stddev^2) / 2)) AS cohen_d
+SELECT
+  (MAX(mean) - MIN(mean)) / SQRT((SUM(stddev * stddev) / 2)) AS cohen_d
 FROM stats;
 
 
