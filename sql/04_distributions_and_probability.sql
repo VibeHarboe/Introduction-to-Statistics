@@ -11,7 +11,7 @@ GROUP BY rating
 ORDER BY num_films DESC;
 
 
--- Histogram-style binning of film lengths (10-minute bins)
+-- Histogram-style binning of film lengths (20-minute bins)
 SELECT
   width_bucket(length, 0, 200, 10) AS bin,
   COUNT(*) AS films_in_bin
